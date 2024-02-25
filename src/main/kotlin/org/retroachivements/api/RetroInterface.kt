@@ -72,7 +72,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserRecentAchievements.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a list of achievements unlocked by a given user between two given dates.
+     * A call to this endpoint will retrieve extended metadata about a game, in addition to a user's progress about that game. This is targeted via a game's unique ID and a given username.
      */
     @Mock @MockResponse(body = "/v1/game/GetGameInfoAndUserProgress.json")
     @POST("/API/API_GetGameInfoAndUserProgress.php")
