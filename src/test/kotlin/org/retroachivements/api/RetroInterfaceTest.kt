@@ -607,7 +607,7 @@ class RetroInterfaceTest {
 
     private fun createMockedApi(): RetroInterface {
 
-        val client = org.retroachivements.api.RetroClient(RetroCredentials("<username>", "<web api key>"))
+        val client = RetroClient(RetroCredentials("<username>", "<web api key>"))
         val retro = client.retroClient
 
         val mockRetrofit: Retromock = Retromock.Builder()
