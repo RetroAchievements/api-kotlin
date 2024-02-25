@@ -1,0 +1,19 @@
+{
+  "mostReportedGames": [
+    {
+      "gameId": 2642,
+      "gameTitle": "Kingdom Hearts: 358/2 Days",
+      "gameIcon": "/Images/056478.png",
+      "console": "Nintendo DS",
+      "openTickets": 6
+    },
+    {
+      "gameId": 13964,
+      "gameTitle": "Grinch, The",
+      "gameIcon": "/Images/065586.png",
+      "console": "PlayStation",
+      "openTickets": 6
+    }
+  ],
+  "url": "https://retroachievements.org/ticketmanager.php?f=1"
+}
