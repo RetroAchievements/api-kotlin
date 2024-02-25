@@ -1,0 +1,24 @@
+[
+  {
+    "GameID": 19921,
+    "Title": "Mega Man: Powered Up [Subset - 468 Stages]",
+    "ImageIcon": "/Images/073205.png",
+    "ConsoleID": 41,
+    "ConsoleName": "PlayStation Portable",
+    "MaxPossible": 481,
+    "NumAwarded": 481,
+    "PctWon": "1.0000",
+    "HardcoreMode": "0"
+  },
+  {
+    "GameID": 19921,
+    "Title": "Mega Man: Powered Up [Subset - 468 Stages]",
+    "ImageIcon": "/Images/073205.png",
+    "ConsoleID": 41,
+    "ConsoleName": "PlayStation Portable",
+    "MaxPossible": 481,
+    "NumAwarded": 481,
+    "PctWon": "1.0000",
+    "HardcoreMode": "1"
+  }
+]

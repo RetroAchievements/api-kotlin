@@ -1,0 +1,24 @@
+{
+  "TotalAwardsCount": 1613,
+  "HiddenAwardsCount": 0,
+  "MasteryAwardsCount": 805,
+  "CompletionAwardsCount": 0,
+  "BeatenHardcoreAwardsCount": 807,
+  "BeatenSoftcoreAwardsCount": 0,
+  "EventAwardsCount": 2,
+  "SiteAwardsCount": 0,
+  "VisibleUserAwards": [
+    {
+      "AwardedAt": "2016-01-02T05:53:52+00:00",
+      "AwardType": "Game Beaten",
+      "AwardData": 1448,
+      "AwardDataExtra": 1,
+      "DisplayOrder": 0,
+      "Title": "Mega Man",
+      "ConsoleID": 7,
+      "ConsoleName": "NES",
+      "Flags": 0,
+      "ImageIcon": "/Images/024519.png"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "Date": "2022-01-01 22:41:48",
+    "HardcoreMode": 1,
+    "AchievementID": 175333,
+    "Title": "Solo Adventurer - Golden Bettles",
+    "Description": "Solo defeat Golden Beetles at 2nd block (normal or above)",
+    "BadgeName": "228985",
+    "Points": 10,
+    "Type": "missable",
+    "Author": "Altomar",
+    "GameTitle": "Persona 3 Portable",
+    "GameIcon": "/Images/065205.png",
+    "GameID": 3164,
+    "ConsoleName": "PlayStation Portable",
+    "CumulScore": 10,
+    "BadgeURL": "/Badge/228985.png",
+    "GameURL": "/game/3164"
+  }
+]
