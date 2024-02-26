@@ -10,7 +10,10 @@ class GetConsoleID {
             val id: String,
 
             @SerializedName("Name")
-            val name: String
+            val name: String,
+
+            @SerializedName("IconURL")
+            val iconUrl: String
         )
     }
 }
