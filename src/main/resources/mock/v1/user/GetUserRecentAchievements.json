@@ -7,6 +7,7 @@
     "Description": "Clear stages 01 - 05 in Quest.",
     "BadgeName": "108302",
     "Points": 5,
+    "TrueRatio": 25,
     "Type": null,
     "Author": "jos",
     "GameTitle": "Pokemon Pinball mini",

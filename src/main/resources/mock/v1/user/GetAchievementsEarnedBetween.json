@@ -7,6 +7,7 @@
     "Description": "Solo defeat Golden Beetles at 2nd block (normal or above)",
     "BadgeName": "228985",
     "Points": 10,
+    "TrueRatio": 25,
     "Type": "missable",
     "Author": "Altomar",
     "GameTitle": "Persona 3 Portable",
