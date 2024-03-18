@@ -127,6 +127,13 @@ if (response is NetworkResponse.Success) {
 
 > A call to this endpoint will retrieve the complete list of all system ID and name pairs on the site.
 
+**Available Parameters**
+
+| Name              | Type | Description                | Example | Default |
+|:------------------|:-----|:---------------------------|:--------|:--------|
+| activeSystemsOnly | Int  | Obtain active systems only | 1       | 0       |
+| gameSystemsOnly   | Int  | Obtain game systems only   | 1       | 0       |
+
 **Example**
 ```kotlin
 val credentials = RetroCredentials("<username>", "<web api key>")
