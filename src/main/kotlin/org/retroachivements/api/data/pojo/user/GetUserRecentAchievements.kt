@@ -45,6 +45,9 @@ class GetUserRecentAchievements {
             @SerializedName("ConsoleName")
             val consoleName: String,
 
+            @SerializedName("CumulScore")
+            val cumulScore: Int,
+
             @SerializedName("BadgeUrl")
             val badgeUrl: String,
 

@@ -228,10 +228,16 @@ interface RetroInterface {
 
     /**
      * A call to this endpoint will retrieve the complete list of all system ID and name pairs on the site.
+     *
+     * [activeSystemsOnly] set to 1
+     * [gameSystemsOnly] set to 1
      */
     @Mock @MockResponse(body = "/v1/system/GetConsoleIDs.json")
     @POST("/API/API_GetConsoleIDs.php")
-    suspend fun getConsoleIds(): NetworkResponse<GetConsoleID.Response, ErrorResponse>
+    suspend fun getConsoleIds(
+        @Query("a") activeSystemsOnly: Int = 0,
+        @Query("g") gameSystemsOnly: Int = 0
+    ): NetworkResponse<GetConsoleID.Response, ErrorResponse>
 
     /**
      * A call to this endpoint will retrieve the complete list of games for a specified console on the site,
