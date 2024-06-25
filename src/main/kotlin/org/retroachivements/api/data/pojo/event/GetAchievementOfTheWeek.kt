@@ -93,7 +93,10 @@ class GetAchievementOfTheWeek {
             val dateAwarded: String,
 
             @SerializedName("HardcoreMode")
-            val hardcoreMode: Int
+            val hardcoreMode: Int,
+
+            @SerializedName("RASoftcorePoints")
+            val raSoftcorePoints: Int
         )
     }
 }
