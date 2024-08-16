@@ -5,6 +5,9 @@ import com.google.gson.annotations.SerializedName
 class GetUserSummary {
 
     data class Response(
+        @SerializedName("User")
+        val user: String,
+        
         @SerializedName("RecentlyPlayedCount")
         val recentlyPlayedCount: Long,
 
