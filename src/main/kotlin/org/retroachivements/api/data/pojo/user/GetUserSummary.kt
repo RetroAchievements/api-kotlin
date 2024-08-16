@@ -51,7 +51,7 @@ class GetUserSummary {
         val id: Long,
 
         @SerializedName("UserWallActive")
-        val userWallActive: Int,
+        val userWallActive: Boolean,
 
         @SerializedName("Motto")
         val motto: String?,
