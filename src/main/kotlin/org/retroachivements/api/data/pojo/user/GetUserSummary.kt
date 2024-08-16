@@ -7,7 +7,7 @@ class GetUserSummary {
     data class Response(
         @SerializedName("User")
         val user: String,
-        
+
         @SerializedName("RecentlyPlayedCount")
         val recentlyPlayedCount: Long,
 
@@ -113,7 +113,7 @@ class GetUserSummary {
             val dateAwarded: String,
 
             @SerializedName("HardcoreAchieved")
-            val hardcoreAchieved: Boolean
+            val hardcoreAchieved: Int
         )
 
         data class Award(
@@ -220,7 +220,7 @@ class GetUserSummary {
             val released: String,
 
             @SerializedName("IsFinal")
-            val isFinal: Boolean,
+            val isFinal: Int,
 
             @SerializedName("ConsoleName")
             val consoleName: String,
