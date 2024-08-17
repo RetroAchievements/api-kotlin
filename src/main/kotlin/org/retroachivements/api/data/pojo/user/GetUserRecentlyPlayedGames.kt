@@ -32,10 +32,10 @@ class GetUserRecentlyPlayedGames {
 
             @SerializedName("LastPlayed")
             val lastPlayed: String,
-            
+
             @SerializedName("AchievementsTotal")
             val achievementsTotal: Long,
-            
+
             @SerializedName("NumPossibleAchievements")
             val numPossibleAchievements: Long,
 
@@ -46,7 +46,7 @@ class GetUserRecentlyPlayedGames {
             val numAchieved: Long,
 
             @SerializedName("ScoreAchieved")
-            val scoreAchieved: Long
+            val scoreAchieved: Long,
 
             @SerializedName("NumAchievedHardcore")
             val numAchievedHardcore: Long,
