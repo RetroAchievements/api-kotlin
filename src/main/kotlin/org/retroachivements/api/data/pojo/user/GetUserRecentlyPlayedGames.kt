@@ -21,14 +21,32 @@ class GetUserRecentlyPlayedGames {
             @SerializedName("ImageIcon")
             val imageIcon: String,
 
+            @SerializedName("ImageTitle")
+            val imageTitle: String,
+
+            @SerializedName("ImageIngame")
+            val imageIngame: String,
+
+            @SerializedName("ImageBoxArt")
+            val imageBoxArt: String,
+
             @SerializedName("LastPlayed")
             val lastPlayed: String,
-
+            
+            @SerializedName("AchievementsTotal")
+            val achievementsTotal: Long,
+            
             @SerializedName("NumPossibleAchievements")
             val numPossibleAchievements: Long,
 
             @SerializedName("PossibleScore")
             val possibleScore: Long,
+
+            @SerializedName("NumAchieved")
+            val numAchieved: Long,
+
+            @SerializedName("ScoreAchieved")
+            val scoreAchieved: Long
 
             @SerializedName("NumAchievedHardcore")
             val numAchievedHardcore: Long,
