@@ -10,7 +10,7 @@ class GetUserRecentlyPlayedGames {
             val gameId: Long,
 
             @SerializedName("ConsoleID")
-            val consoleId: Long,
+            val consoleId: Int,
 
             @SerializedName("ConsoleName")
             val consoleName: String,
