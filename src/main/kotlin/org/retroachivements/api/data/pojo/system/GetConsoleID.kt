@@ -13,10 +13,10 @@ class GetConsoleID {
             val name: String,
 
             @SerializedName("IconURL")
-            val iconUrl: String
+            val iconUrl: String,
 
             @SerializedName("Active")
-            val active: Boolean
+            val active: Boolean,
 
             @SerializedName("IsGameSystem")
             val isGameSystem: Boolean
