@@ -16,6 +16,9 @@ class GetUserProfile {
         @SerializedName("RichPresenceMsg")
         val richPresenceMsg: String?,
 
+        @SerializedName("LastGameID")
+        val lastGameID: Long?,
+
         @SerializedName("ContribYield")
         val contribYield: Int,
 
