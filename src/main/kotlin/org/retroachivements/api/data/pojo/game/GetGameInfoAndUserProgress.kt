@@ -133,10 +133,10 @@ class GetGameInfoAndUserProgress {
             val type: String,
 
             @SerializedName("DateEarnedHardcore")
-            val dateEarnedHardcore: String,
+            val dateEarnedHardcore: String?,
 
             @SerializedName("DateEarned")
-            val dateEarned: String
+            val dateEarned: String?
         )
     }
 }
