@@ -70,10 +70,10 @@ class GetMostRecentTickets {
             val reportedBy: String,
 
             @SerializedName("ResolvedAt")
-            val resolvedAt: String,
+            val resolvedAt: String?,
 
             @SerializedName("ResolvedBy")
-            val resolvedBy: String,
+            val resolvedBy: String?,
 
             @SerializedName("ReportStateDescription")
             val reportStateDescription: String,
