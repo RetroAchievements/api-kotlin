@@ -217,7 +217,7 @@ class GetUserSummary {
             val genre: String,
 
             @SerializedName("Released")
-            val released: String,
+            val released: String?,
 
             @SerializedName("IsFinal")
             val isFinal: Int,
