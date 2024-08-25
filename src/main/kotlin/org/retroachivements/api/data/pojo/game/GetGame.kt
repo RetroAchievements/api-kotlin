@@ -48,7 +48,7 @@ class GetGame {
         val genre: String,
 
         @SerializedName("Released")
-        val released: String,
+        val released: String?,
 
         @SerializedName("GameTitle")
         val gameTitle: String,
