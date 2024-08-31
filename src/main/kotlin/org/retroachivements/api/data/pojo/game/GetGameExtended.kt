@@ -62,7 +62,7 @@ class GetGameExtended {
         @SerializedName("PointsTotal")
         val pointsTotal: Long,
 
-        @SerializedName("GuideUrl")
+        @SerializedName("GuideURL")
         val guideUrl: String?,
 
         @SerializedName("Updated")

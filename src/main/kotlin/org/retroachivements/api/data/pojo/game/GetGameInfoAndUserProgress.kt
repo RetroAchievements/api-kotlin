@@ -53,7 +53,7 @@ class GetGameInfoAndUserProgress {
         @SerializedName("PlayersTotal")
         val playersTotal: Int,
 
-        @SerializedName("GuideUrl")
+        @SerializedName("GuideURL")
         val guideUrl: String?,
 
         @SerializedName("ConsoleName")
