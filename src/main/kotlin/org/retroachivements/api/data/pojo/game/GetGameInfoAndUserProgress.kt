@@ -44,6 +44,9 @@ class GetGameInfoAndUserProgress {
         @SerializedName("Released")
         val released: String?,
 
+        @SerializedName("ReleasedAtGranularity")
+        val releasedAtGranularity: String?,
+
         @SerializedName("IsFinal")
         val isFinal: Int,
 
