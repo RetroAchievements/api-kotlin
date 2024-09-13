@@ -31,7 +31,7 @@ class GetGameList {
             val points: Long,
 
             @SerializedName("DateModified")
-            val dateModified: String,
+            val dateModified: String?,
 
             @SerializedName("ForumTopicID")
             val forumTopicId: Long,
