@@ -22,7 +22,7 @@ class GetGameList {
             val imageIcon: String,
 
             @SerializedName("NumAchievements")
-            val numAchievements: Long,
+            val numAchievements: Int,
 
             @SerializedName("NumLeaderboards")
             val numLeaderboards: Long,
