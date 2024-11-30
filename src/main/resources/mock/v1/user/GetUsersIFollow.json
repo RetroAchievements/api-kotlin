@@ -1,0 +1,24 @@
+{
+    "Count": 3,
+    "Total": 3,
+    "Results": [
+        {
+            "User": "zuliman92",
+            "Points": 2071,
+            "PointsSoftcore": 258,
+            "IsFollowingMe": true
+        },
+        {
+            "User": "Jamiras",
+            "Points": 117273 ,
+            "PointsSoftcore": 1350,
+            "IsFollowingMe": false
+        },
+        {
+            "User": "SLOslobulus",
+            "Points": 7081,
+            "PointsSoftcore": 0,
+            "IsFollowingMe": true
+        }
+    ]
+}
