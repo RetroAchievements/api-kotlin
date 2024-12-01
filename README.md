@@ -1177,6 +1177,76 @@ if (response is NetworkResponse.Success) {
 
 </details>
 
+<details>
+<summary>GetUsersIFollow</summary>
+<br>
+
+> A call to this endpoint will retrieve a list of users that I follow.
+
+**Available Parameters**
+
+| Name   | Type | Description                            | Example | Default |
+|:-------|:-----|:---------------------------------------|:--------|:--------|
+| offset | Int  | number of entries to skip              | 100     | 0       |
+| count  | Int  | number of entries to return (max: 500) | 50      | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetUsersIFollow.Response, ErrorResponse> = api.getUsersIFollow()
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val users: GetUsersIFollow.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+<details>
+<summary>GetUsersFollowingMe</summary>
+<br>
+
+> A call to this endpoint will retrieve a list of users that are following me.
+
+**Available Parameters**
+
+| Name   | Type | Description                            | Example | Default |
+|:-------|:-----|:---------------------------------------|:--------|:--------|
+| offset | Int  | number of entries to skip              | 100     | 0       |
+| count  | Int  | number of entries to return (max: 500) | 50      | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse> = api.getUsersFollowingMe()
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val users: GetUsersFollowingMe.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
 ## Testing
 
 Apache maven must be correctly installed on the system.

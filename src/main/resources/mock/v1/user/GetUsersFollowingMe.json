@@ -1,0 +1,24 @@
+{
+    "Count": 3,
+    "Total": 3,
+    "Results": [
+        {
+            "User": "zuliman92",
+            "Points": 2071,
+            "PointsSoftcore": 258,
+            "AmIFollowing": true
+        },
+        {
+            "User": "SLOslobulus",
+            "Points": 7081,
+            "PointsSoftcore": 0,
+            "AmIFollowing": true
+        },
+        {
+            "User": "Moderator",
+            "Points": 1000,
+            "PointsSoftcore": 100,
+            "AmIFollowing": false
+        }
+    ]
+}

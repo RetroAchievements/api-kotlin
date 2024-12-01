@@ -172,6 +172,26 @@ interface RetroInterface {
     ): NetworkResponse<GetUserCompletedGames.Response, ErrorResponse>
 
     /**
+     * A call to this endpoint will retrieve a list of users that I follow.
+     */
+    @Mock @MockResponse(body = "/v1/user/GetUsersIFollow.json")
+    @POST("/API/API_GetUsersIFollow.php")
+    suspend fun getUsersIFollow(
+        @Query("o") offset: Int = 0,
+        @Query("c") count: Int = 100
+    ): NetworkResponse<GetUsersIFollow.Response, ErrorResponse>
+
+    /**
+     * A call to this endpoint will retrieve a list of users that are following me.
+     */
+    @Mock @MockResponse(body = "/v1/user/GetUsersFollowingMe.json")
+    @POST("/API/GetUsersFollowingMe.php")
+    suspend fun getUsersFollowingMe(
+        @Query("o") offset: Int = 0,
+        @Query("c") count: Int = 100
+    ): NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse>
+
+    /**
      * A call to this endpoint will retrieve basic metadata about a game, targeted via its unique ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetGame.json")

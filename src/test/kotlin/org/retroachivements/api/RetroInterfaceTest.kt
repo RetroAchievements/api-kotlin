@@ -309,6 +309,38 @@ class RetroInterfaceTest {
     }
 
     @Test
+    fun `check getUsersIFollow response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getUsersIFollow: NetworkResponse<GetUsersIFollow.Response, ErrorResponse> = api.getUsersIFollow()
+
+            assert(getUsersIFollow is NetworkResponse.Success)
+
+            assertNotNull((getUsersIFollow as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getUsersFollowingMe response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getUsersFollowingMe: NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse> = api.getUsersFollowingMe()
+
+            assert(getUsersFollowingMe is NetworkResponse.Success)
+
+            assertNotNull((getUsersFollowingMe as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
     fun `check getGame response parser`() {
 
         runBlocking {
