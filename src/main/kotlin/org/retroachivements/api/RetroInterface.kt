@@ -10,6 +10,7 @@ import org.retroachivements.api.data.pojo.ErrorResponse
 import org.retroachivements.api.data.pojo.achievement.GetAchievementUnlocks
 import org.retroachivements.api.data.pojo.event.GetAchievementOfTheWeek
 import org.retroachivements.api.data.pojo.feed.GetClaims
+import org.retroachivements.api.data.pojo.feed.GetRecentGameAwards
 import org.retroachivements.api.data.pojo.feed.GetTopTenUsers
 import org.retroachivements.api.data.pojo.game.*
 import org.retroachivements.api.data.pojo.system.GetConsoleID
@@ -322,6 +323,13 @@ interface RetroInterface {
     @Mock @MockResponse(body = "/v1/feed/GetActiveClaims.json")
     @POST("/API/API_GetActiveClaims.php")
     suspend fun getActiveClaims(): NetworkResponse<GetClaims.Response, ErrorResponse>
+
+    /**
+     * A call to this endpoint will retrieve all recently granted game awards across the site's userbase.
+     */
+    @Mock @MockResponse(body = "/v1/feed/GetRecentGameAwards.json")
+    @POST("/API/API_GetRecentGameAwards.php")
+    suspend fun getRecentGameAwards(): NetworkResponse<GetRecentGameAwards.Response, ErrorResponse>
 
     /**
      * A call to this endpoint will retrieve comprehensive metadata about the current Achievement of the Week.

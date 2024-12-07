@@ -10,6 +10,7 @@ import org.retroachivements.api.data.pojo.ErrorResponse
 import org.retroachivements.api.data.pojo.achievement.GetAchievementUnlocks
 import org.retroachivements.api.data.pojo.event.GetAchievementOfTheWeek
 import org.retroachivements.api.data.pojo.feed.GetClaims
+import org.retroachivements.api.data.pojo.feed.GetRecentGameAwards
 import org.retroachivements.api.data.pojo.feed.GetTopTenUsers
 import org.retroachivements.api.data.pojo.game.*
 import org.retroachivements.api.data.pojo.system.GetConsoleID
@@ -551,6 +552,22 @@ class RetroInterfaceTest {
             assert(getActiveClaims is NetworkResponse.Success)
 
             assertNotNull((getActiveClaims as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getRecentGameAwards response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getRecentGameAwards: NetworkResponse<GetRecentGameAwards.Response, ErrorResponse> = api.getRecentGameAwards()
+
+            assert(getRecentGameAwards is NetworkResponse.Success)
+
+            assertNotNull((getRecentGameAwards as NetworkResponse.Success).body)
         }
     }
 

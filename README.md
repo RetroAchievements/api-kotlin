@@ -280,6 +280,34 @@ if (response is NetworkResponse.Success) {
 
 </details>
 
+<details>
+<summary>GetRecentGameAwards</summary>
+<br>
+
+> A call to this endpoint will retrieve all recently granted game awards across the site's userbase.
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetRecentGameAwards.Response, ErrorResponse> = api.getRecentGameAwards()
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val topUsers: GetRecentGameAwards.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
 #### Games
 
 <details>
