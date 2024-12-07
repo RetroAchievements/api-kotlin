@@ -1,0 +1,76 @@
+{
+    "Count": 10,
+    "Total": 540,
+    "Results": [
+        {
+            "User": "Thebpg13",
+            "DateSubmitted": "2024-08-27T21:33:33+00:00",
+            "Score": 11903,
+            "FormattedScore": "1:59.03",
+            "Rank": 1
+        },
+        {
+            "User": "josef733",
+            "DateSubmitted": "2024-05-28T21:36:55+00:00",
+            "Score": 12656,
+            "FormattedScore": "2:06.56",
+            "Rank": 2
+        },
+        {
+            "User": "masakimu",
+            "DateSubmitted": "2023-10-26T20:43:26+00:00",
+            "Score": 12880,
+            "FormattedScore": "2:08.80",
+            "Rank": 3
+        },
+        {
+            "User": "Ryszard",
+            "DateSubmitted": "2023-10-01T17:01:14+00:00",
+            "Score": 13096,
+            "FormattedScore": "2:10.96",
+            "Rank": 4
+        },
+        {
+            "User": "PaulSavage",
+            "DateSubmitted": "2024-11-16T16:50:44+00:00",
+            "Score": 13263,
+            "FormattedScore": "2:12.63",
+            "Rank": 5
+        },
+        {
+            "User": "JollyClubber",
+            "DateSubmitted": "2024-11-22T11:38:58+00:00",
+            "Score": 13263,
+            "FormattedScore": "2:12.63",
+            "Rank": 5
+        },
+        {
+            "User": "EMDM15",
+            "DateSubmitted": "2023-08-13T10:38:39+00:00",
+            "Score": 13326,
+            "FormattedScore": "2:13.26",
+            "Rank": 7
+        },
+        {
+            "User": "xClawz",
+            "DateSubmitted": "2022-06-05T15:00:39+00:00",
+            "Score": 13350,
+            "FormattedScore": "2:13.50",
+            "Rank": 8
+        },
+        {
+            "User": "KboxGames",
+            "DateSubmitted": "2024-10-03T14:13:47+00:00",
+            "Score": 13360,
+            "FormattedScore": "2:13.60",
+            "Rank": 9
+        },
+        {
+            "User": "endresults",
+            "DateSubmitted": "2022-06-05T04:26:00+00:00",
+            "Score": 13376,
+            "FormattedScore": "2:13.76",
+            "Rank": 10
+        }
+    ]
+}

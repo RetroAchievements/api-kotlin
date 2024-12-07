@@ -247,6 +247,28 @@ interface RetroInterface {
     ): NetworkResponse<GetGameRankAndScore.Response, ErrorResponse>
 
     /**
+     * A call to this endpoint will retrieve a given game's list of leaderboards, targeted by the game's ID.
+     */
+    @Mock @MockResponse(body = "/v1/game/GetGameLeaderboards.json")
+    @POST("/API/API_GetGameLeaderboards.php")
+    suspend fun getGameLeaderboards(
+        @Query("i") gameId: Long,
+        @Query("o") offset: Int = 0,
+        @Query("c") count: Int = 100
+    ): NetworkResponse<GetGameLeaderboards.Response, ErrorResponse>
+
+    /**
+     * A call to this endpoint will retrieve a given leaderboard's entries, targeted by its ID.
+     */
+    @Mock @MockResponse(body = "/v1/game/GetLeaderboardEntries.json")
+    @POST("/API/API_GetLeaderboardEntries.php")
+    suspend fun getLeaderboardEntries(
+        @Query("i") gameId: Long,
+        @Query("o") offset: Int = 0,
+        @Query("c") count: Int = 100
+    ): NetworkResponse<GetLeaderboardEntries.Response, ErrorResponse>
+
+    /**
      * A call to this endpoint will retrieve the complete list of all system ID and name pairs on the site.
      *
      * [activeSystemsOnly] set to 1

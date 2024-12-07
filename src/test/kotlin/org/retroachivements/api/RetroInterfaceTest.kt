@@ -431,6 +431,43 @@ class RetroInterfaceTest {
     }
 
     @Test
+    fun `check getGameLeaderboards response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val gameLeaderboards: NetworkResponse<GetGameLeaderboards.Response, ErrorResponse> = api.getGameLeaderboards(
+                gameId = 14402
+            )
+
+            assert(gameLeaderboards is NetworkResponse.Success)
+
+            assertNotNull((gameLeaderboards as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getLeaderboardEntries response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val leaderboardEntries: NetworkResponse<GetLeaderboardEntries.Response, ErrorResponse> = api.getLeaderboardEntries(
+                gameId = 14402
+            )
+
+            assert(leaderboardEntries is NetworkResponse.Success)
+
+            assertNotNull((leaderboardEntries as NetworkResponse.Success).body)
+        }
+    }
+
+
+    @Test
     fun `check getConsoleIds response parser`() {
 
         runBlocking {

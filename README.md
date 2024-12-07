@@ -26,7 +26,7 @@ Then add this `api-kotlin` dependency to your `pom.xml` project!
 <dependency>    
     <groupId>com.github.RetroAchievements</groupId>    
     <artifactId>api-kotlin</artifactId>    
-    <version>1.0.10</version>
+    <version>1.0.14</version>
 </dependency>
 ```
 
@@ -466,6 +466,82 @@ if (response is NetworkResponse.Success) {
 
 </details>
 
+<details>
+<summary>GetGameLeaderboards</summary>
+<br>
+
+> A call to this endpoint will retrieve a given game's list of leaderboards, targeted by the game's ID.
+
+**Available Parameters**
+
+| Name   | Type | Description                            | Example | Default |
+|:-------|:-----|:---------------------------------------|:--------|:--------|
+| gameId | Long | The target game ID.                    | 14402   |         |
+| offset | Int  | number of entries to skip              | 100     | 0       |
+| count  | Int  | number of entries to return (max: 500) | 50      | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetGameLeaderboards.Response, ErrorResponse> = api.getGameLeaderboards(
+    gameId = 14402
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val gameLeaderboards: GetGameLeaderboards.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+<details>
+<summary>GetLeaderboardEntries</summary>
+<br>
+
+> A call to this endpoint will retrieve a given leaderboard's entries, targeted by its ID.
+
+**Available Parameters**
+
+| Name   | Type | Description                            | Example | Default |
+|:-------|:-----|:---------------------------------------|:--------|:--------|
+| gameId | Long | The target game ID.                    | 14402   |         |
+| offset | Int  | number of entries to skip              | 100     | 0       |
+| count  | Int  | number of entries to return (max: 500) | 50      | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetLeaderboardEntries.Response, ErrorResponse> = api.getLeaderboardEntries(
+    gameId = 14402
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val leaderboardEntries: GetLeaderboardEntries.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
 #### Tickets
 
 <details>
@@ -554,7 +630,7 @@ if (response is NetworkResponse.Success) {
 | shouldReturnTicketsList                   | Int  | Set to 1 if you want deep ticket metadata in the response's Tickets array. | 0       |
 | isGettingTicketsForUnofficialAchievements | Int  | Set to 5 if you want ticket data for unofficial achievements.              | 0       |
 | count                                     | Int  | Count, number of records to return (default: 10, max: 100).                | 0       |
-| offset                                    | Int  |  number of entries to skip (default: 0).                                                    | 0       |
+| offset                                    | Int  | number of entries to skip (default: 0).                                    | 0       |
 
 **Example**
 ```kotlin
