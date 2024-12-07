@@ -8,8 +8,10 @@ import org.retroachivements.api.core.RequiresCache
 import org.retroachivements.api.data.RetroCredentials
 import org.retroachivements.api.data.pojo.ErrorResponse
 import org.retroachivements.api.data.pojo.achievement.GetAchievementUnlocks
+import org.retroachivements.api.data.pojo.comments.GetComments
 import org.retroachivements.api.data.pojo.event.GetAchievementOfTheWeek
 import org.retroachivements.api.data.pojo.feed.GetClaims
+import org.retroachivements.api.data.pojo.feed.GetRecentGameAwards
 import org.retroachivements.api.data.pojo.feed.GetTopTenUsers
 import org.retroachivements.api.data.pojo.game.*
 import org.retroachivements.api.data.pojo.system.GetConsoleID
@@ -309,6 +311,24 @@ class RetroInterfaceTest {
     }
 
     @Test
+    fun `check getUserWantToPlayList response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getUserWantToPlayList: NetworkResponse<GetUserWantToPlayList.Response, ErrorResponse> = api.getUserWantToPlayList(
+                username = "MaxMilyin"
+            )
+
+            assert(getUserWantToPlayList is NetworkResponse.Success)
+
+            assertNotNull((getUserWantToPlayList as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
     fun `check getUsersIFollow response parser`() {
 
         runBlocking {
@@ -373,6 +393,24 @@ class RetroInterfaceTest {
             assert(getGameExtended is NetworkResponse.Success)
 
             assertNotNull((getGameExtended as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getGameHashes response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getGameHashes: NetworkResponse<GetGameHashes.Response, ErrorResponse> = api.getGameHashes(
+                gameId = 14402
+            )
+
+            assert(getGameHashes is NetworkResponse.Success)
+
+            assertNotNull((getGameHashes as NetworkResponse.Success).body)
         }
     }
 
@@ -555,6 +593,22 @@ class RetroInterfaceTest {
     }
 
     @Test
+    fun `check getRecentGameAwards response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getRecentGameAwards: NetworkResponse<GetRecentGameAwards.Response, ErrorResponse> = api.getRecentGameAwards()
+
+            assert(getRecentGameAwards is NetworkResponse.Success)
+
+            assertNotNull((getRecentGameAwards as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
     fun `check getAchievementOfTheWeek response parser`() {
 
         runBlocking {
@@ -671,6 +725,60 @@ class RetroInterfaceTest {
             assert(getAchievementTicketStats is NetworkResponse.Success)
 
             assertNotNull((getAchievementTicketStats as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getCommentsOnUserWall response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnUserWall(
+                username = "MaxMilyin"
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getCommentsOnGameWall response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnGameWall(
+                gameId = 27683
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getCommentsOnAchievementWall response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnAchievementWall(
+                achievementId = 29733
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
         }
     }
 
