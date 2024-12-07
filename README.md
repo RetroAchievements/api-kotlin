@@ -495,6 +495,44 @@ if (response is NetworkResponse.Success) {
 </details>
 
 <details>
+<summary>GetGameHashes</summary>
+<br>
+
+> A call to this endpoint will retrieve the hashes linked to a game, targeted via its unique ID.
+
+**Available Parameters**
+
+| Name   | Type | Description         | Example |
+|:-------|:-----|:--------------------|:--------|
+| gameId | Long | The target game ID. | 14402   |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetGameHashes.Response, ErrorResponse> = api.getGameHashes(
+    gameId = 14402
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val gameHashes: GetGameHashes.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+#### Leaderboards
+
+<details>
 <summary>GetGameLeaderboards</summary>
 <br>
 

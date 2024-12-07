@@ -378,6 +378,24 @@ class RetroInterfaceTest {
     }
 
     @Test
+    fun `check getGameHashes response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getGameHashes: NetworkResponse<GetGameHashes.Response, ErrorResponse> = api.getGameHashes(
+                gameId = 14402
+            )
+
+            assert(getGameHashes is NetworkResponse.Success)
+
+            assertNotNull((getGameHashes as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
     fun `check getAchievementCount response parser`() {
 
         runBlocking {

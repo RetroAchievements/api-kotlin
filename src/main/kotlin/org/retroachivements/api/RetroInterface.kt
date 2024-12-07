@@ -212,6 +212,15 @@ interface RetroInterface {
     ): NetworkResponse<GetGameExtended.Response, ErrorResponse>
 
     /**
+     * A call to this endpoint will retrieve the hashes linked to a game, targeted via its unique ID.
+     */
+    @Mock @MockResponse(body = "/v1/game/GetGameHashes.json")
+    @POST("/API/API_GetGameHashes.php")
+    suspend fun getGameHashes(
+        @Query("i") gameId: Long
+    ): NetworkResponse<GetGameHashes.Response, ErrorResponse>
+
+    /**
      * A call to this endpoint will retrieve the list of achievement IDs for a game, targeted by game ID.
      * This can be useful if you'd like to quickly check how many achievements a particular game has.
      * Using this, you can also detect if a game has received a revision.
@@ -329,7 +338,12 @@ interface RetroInterface {
      */
     @Mock @MockResponse(body = "/v1/feed/GetRecentGameAwards.json")
     @POST("/API/API_GetRecentGameAwards.php")
-    suspend fun getRecentGameAwards(): NetworkResponse<GetRecentGameAwards.Response, ErrorResponse>
+    suspend fun getRecentGameAwards(
+        @Query("d") @DateFormat("yyyy-MM-dd") startingDate: Date = Date(),
+        @Query("c") count: Int = 25,
+        @Query("o") offset: Int = 0,
+        @Query("k") kinds: String = listOf("beaten-softcore", "beaten-hardcore", "completed", "mastered").joinToString()
+    ): NetworkResponse<GetRecentGameAwards.Response, ErrorResponse>
 
     /**
      * A call to this endpoint will retrieve comprehensive metadata about the current Achievement of the Week.

@@ -1,0 +1,29 @@
+{
+    "Results": [
+        {
+            "Name": "Densetsu no Stafy 3 (Japan).gba",
+            "MD5": "a9a2f5d60ea44e08901abdfe69f2438a",
+            "Labels": [
+                "nointro"
+            ],
+            "PatchUrl": null
+        },
+        {
+            "Name": "Densetsu no Stafy 3 (Japan) (Rev 1).gba",
+            "MD5": "ee4fbcec249a68b796be491f56ffe03d",
+            "Labels": [
+                "nointro"
+            ],
+            "PatchUrl": null
+        },
+        {
+            "Name": "Densetsu no Stafy 3 (Japan) (Rev 1) (En) (v1.0) (Dimedime).gba",
+            "MD5": "cc46367f280f558e32cf9cc1ad10fb9c",
+            "Labels": [
+                "nointro",
+                "rapatches"
+            ],
+            "PatchUrl": "https://github.com/RetroAchievements/RAPatches/raw/main/GBA/Translation/English/7270-DensetsunoStafy3-EnglishTranslation.zip"
+        }
+    ]
+}
