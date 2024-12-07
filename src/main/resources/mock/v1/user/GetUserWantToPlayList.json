@@ -1,0 +1,51 @@
+{
+    "Count": 5,
+    "Total": 28,
+    "Results": [
+        {
+            "ID": 24,
+            "Title": "Altered Beast",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/088907.png",
+            "PointsTotal": 0,
+            "AchievementsPublished": 0
+        },
+        {
+            "ID": 154,
+            "Title": "Doom Troopers",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/008527.png",
+            "PointsTotal": 517,
+            "AchievementsPublished": 35
+        },
+        {
+            "ID": 207,
+            "Title": "Light Crusader",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/009270.png",
+            "PointsTotal": 290,
+            "AchievementsPublished": 44
+        },
+        {
+            "ID": 305,
+            "Title": "Toki: Going Ape Spit",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/078311.png",
+            "PointsTotal": 231,
+            "AchievementsPublished": 29
+        },
+        {
+            "ID": 1404,
+            "Title": "Steel Empire",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/073608.png",
+            "PointsTotal": 405,
+            "AchievementsPublished": 26
+        }
+    ]
+}

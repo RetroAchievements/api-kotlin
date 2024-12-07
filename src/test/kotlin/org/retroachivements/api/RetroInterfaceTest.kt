@@ -310,6 +310,24 @@ class RetroInterfaceTest {
     }
 
     @Test
+    fun `check getUserWantToPlayList response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val getUserWantToPlayList: NetworkResponse<GetUserWantToPlayList.Response, ErrorResponse> = api.getUserWantToPlayList(
+                username = "MaxMilyin"
+            )
+
+            assert(getUserWantToPlayList is NetworkResponse.Success)
+
+            assertNotNull((getUserWantToPlayList as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
     fun `check getUsersIFollow response parser`() {
 
         runBlocking {

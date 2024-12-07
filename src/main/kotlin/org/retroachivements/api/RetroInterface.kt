@@ -173,6 +173,18 @@ interface RetroInterface {
     ): NetworkResponse<GetUserCompletedGames.Response, ErrorResponse>
 
     /**
+     * A call to this endpoint will retrieve a given user's "Want to Play Games" list, targeted by their username.
+     * Results will only be returned if the target user is yourself, or if both you and the target user follow each other.
+     */
+    @Mock @MockResponse(body = "/v1/user/GetUserWantToPlayList.json")
+    @POST("/API/API_GetUserWantToPlayList.php.php")
+    suspend fun getUserWantToPlayList(
+        @Query("u") username: String,
+        @Query("c") maxRecords: Int = 100,
+        @Query("o") skipRecords: Int = 0
+    ): NetworkResponse<GetUserWantToPlayList.Response, ErrorResponse>
+
+    /**
      * A call to this endpoint will retrieve a list of users that I follow.
      */
     @Mock @MockResponse(body = "/v1/user/GetUsersIFollow.json")
@@ -186,7 +198,7 @@ interface RetroInterface {
      * A call to this endpoint will retrieve a list of users that are following me.
      */
     @Mock @MockResponse(body = "/v1/user/GetUsersFollowingMe.json")
-    @POST("/API/GetUsersFollowingMe.php")
+    @POST("/API/API_GetUsersFollowingMe.php")
     suspend fun getUsersFollowingMe(
         @Query("o") offset: Int = 0,
         @Query("c") count: Int = 100

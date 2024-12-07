@@ -950,6 +950,44 @@ if (response is NetworkResponse.Success) {
 </details>
 
 <details>
+<summary>GetUserWantToPlayList</summary>
+<br>
+
+> A call to this endpoint will retrieve a given user's "Want to Play Games" list, targeted by their username. Results will only be returned if the target user is yourself, or if both you and the target user follow each other.
+
+**Available Parameters**
+
+| Name     | Type   | Description                                                      | Example   | Default |
+|:---------|:-------|:-----------------------------------------------------------------|:----------|:--------|
+| username | String | The username of the user you'd like to query completed games for | MaxMilyin |         |
+| offset   | Int    | number of entries to skip                                        | 100       | 0       |
+| count    | Int    | number of entries to return (max: 500)                           | 50        | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetUserWantToPlayList.Response, ErrorResponse> = api.getUserWantToPlayList(
+    username = "MaxMilyin",
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val wantToPlayList: GetUserWantToPlayList.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+<details>
 <summary>GetUserCompletionProgress</summary>
 <br>
 
