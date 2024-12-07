@@ -8,6 +8,7 @@ import org.retroachivements.api.core.RequiresCache
 import org.retroachivements.api.data.RetroCredentials
 import org.retroachivements.api.data.pojo.ErrorResponse
 import org.retroachivements.api.data.pojo.achievement.GetAchievementUnlocks
+import org.retroachivements.api.data.pojo.comments.GetComments
 import org.retroachivements.api.data.pojo.event.GetAchievementOfTheWeek
 import org.retroachivements.api.data.pojo.feed.GetClaims
 import org.retroachivements.api.data.pojo.feed.GetRecentGameAwards
@@ -724,6 +725,60 @@ class RetroInterfaceTest {
             assert(getAchievementTicketStats is NetworkResponse.Success)
 
             assertNotNull((getAchievementTicketStats as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getCommentsOnUserWall response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnUserWall(
+                username = "MaxMilyin"
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getCommentsOnGameWall response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnGameWall(
+                gameId = 27683
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getCommentsOnAchievementWall response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnAchievementWall(
+                achievementId = 29733
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
         }
     }
 

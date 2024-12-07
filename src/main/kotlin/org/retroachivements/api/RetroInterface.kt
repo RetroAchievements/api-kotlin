@@ -8,6 +8,7 @@ import org.retroachivements.api.core.DateFormat
 import org.retroachivements.api.core.RequiresCache
 import org.retroachivements.api.data.pojo.ErrorResponse
 import org.retroachivements.api.data.pojo.achievement.GetAchievementUnlocks
+import org.retroachivements.api.data.pojo.comments.GetComments
 import org.retroachivements.api.data.pojo.event.GetAchievementOfTheWeek
 import org.retroachivements.api.data.pojo.feed.GetClaims
 import org.retroachivements.api.data.pojo.feed.GetRecentGameAwards
@@ -35,14 +36,14 @@ interface RetroInterface {
     suspend fun getTopTenUsers(): NetworkResponse<GetTopTenUsers.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve minimal user profile information, such as their ID, motto, most recent game ID, avatar, and points.
+     * A call to this function will retrieve minimal user profile information, such as their ID, motto, most recent game ID, avatar, and points.
      */
     @Mock @MockResponse(body = "/v1/user/GetUserProfile.json")
     @POST("/API/API_GetUserProfile.php")
     suspend fun getUserProfile(@Query("u") username: String): NetworkResponse<GetUserProfile.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a list of a target user's recently unlocked achievements, via their username. By default, it fetches achievements unlocked in the last hour.
+     * A call to this function will retrieve a list of a target user's recently unlocked achievements, via their username. By default, it fetches achievements unlocked in the last hour.
      */
     @Mock @MockResponse(body = "/v1/user/GetUserRecentAchievements.json")
     @POST("/API/API_GetUserRecentAchievements.php")
@@ -52,7 +53,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserRecentAchievements.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a list of achievements unlocked by a given user between two given dates.
+     * A call to this function will retrieve a list of achievements unlocked by a given user between two given dates.
      */
     @Mock @MockResponse(body = "/v1/user/GetAchievementsEarnedBetween.json")
     @POST("/API/API_GetAchievementsEarnedBetween.php")
@@ -63,7 +64,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserRecentAchievements.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a list of achievements unlocked by a given user on a specified date.
+     * A call to this function will retrieve a list of achievements unlocked by a given user on a specified date.
      */
     @Mock @MockResponse(body = "/v1/user/GetAchievementsEarnedOnDay.json")
     @POST("/API/API_GetAchievementsEarnedOnDay.php")
@@ -73,7 +74,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserRecentAchievements.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve extended metadata about a game, in addition to a user's progress about that game. This is targeted via a game's unique ID and a given username.
+     * A call to this function will retrieve extended metadata about a game, in addition to a user's progress about that game. This is targeted via a game's unique ID and a given username.
      */
     @Mock @MockResponse(body = "/v1/game/GetGameInfoAndUserProgress.json")
     @POST("/API/API_GetGameInfoAndUserProgress.php")
@@ -83,7 +84,7 @@ interface RetroInterface {
     ): NetworkResponse<GetGameInfoAndUserProgress.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a giver user's completion progress, targeted by their username.
+     * A call to this function will retrieve a giver user's completion progress, targeted by their username.
      */
     @Mock @MockResponse(body = "/v1/user/GetUserCompletionProgress.json")
     @POST("/API/API_GetUserCompletionProgress.php")
@@ -94,7 +95,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserCompletionProgress.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve metadata about the target user's site awards, via their username.
+     * A call to this function will retrieve metadata about the target user's site awards, via their username.
      */
     @Mock @MockResponse(body = "/v1/user/GetUserAwards.json")
     @POST("/API/API_GetUserAwards.php")
@@ -161,7 +162,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserSummary.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve completion metadata about the games a given user has played.
+     * A call to this function will retrieve completion metadata about the games a given user has played.
      * It returns two entries per each game: one for the softcore completion and one for the hardcore completion.
      * These are designated by the hardcoreMode property on each completion object.
      */
@@ -173,11 +174,11 @@ interface RetroInterface {
     ): NetworkResponse<GetUserCompletedGames.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a given user's "Want to Play Games" list, targeted by their username.
+     * A call to this function will retrieve a given user's "Want to Play Games" list, targeted by their username.
      * Results will only be returned if the target user is yourself, or if both you and the target user follow each other.
      */
     @Mock @MockResponse(body = "/v1/user/GetUserWantToPlayList.json")
-    @POST("/API/API_GetUserWantToPlayList.php.php")
+    @POST("/API/API_GetUserWantToPlayList.php")
     suspend fun getUserWantToPlayList(
         @Query("u") username: String,
         @Query("c") maxRecords: Int = 100,
@@ -185,7 +186,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUserWantToPlayList.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a list of users that I follow.
+     * A call to this function will retrieve a list of users that I follow.
      */
     @Mock @MockResponse(body = "/v1/user/GetUsersIFollow.json")
     @POST("/API/API_GetUsersIFollow.php")
@@ -195,7 +196,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUsersIFollow.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a list of users that are following me.
+     * A call to this function will retrieve a list of users that are following me.
      */
     @Mock @MockResponse(body = "/v1/user/GetUsersFollowingMe.json")
     @POST("/API/API_GetUsersFollowingMe.php")
@@ -205,7 +206,7 @@ interface RetroInterface {
     ): NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve basic metadata about a game, targeted via its unique ID.
+     * A call to this function will retrieve basic metadata about a game, targeted via its unique ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetGame.json")
     @POST("/API/API_GetGame.php")
@@ -214,7 +215,7 @@ interface RetroInterface {
     ): NetworkResponse<GetGame.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve extended metadata about a game, targeted via its unique ID.
+     * A call to this function will retrieve extended metadata about a game, targeted via its unique ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetGameExtended.json")
     @POST("/API/API_GetGameExtended.php")
@@ -224,7 +225,7 @@ interface RetroInterface {
     ): NetworkResponse<GetGameExtended.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve the hashes linked to a game, targeted via its unique ID.
+     * A call to this function will retrieve the hashes linked to a game, targeted via its unique ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetGameHashes.json")
     @POST("/API/API_GetGameHashes.php")
@@ -233,7 +234,7 @@ interface RetroInterface {
     ): NetworkResponse<GetGameHashes.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve the list of achievement IDs for a game, targeted by game ID.
+     * A call to this function will retrieve the list of achievement IDs for a game, targeted by game ID.
      * This can be useful if you'd like to quickly check how many achievements a particular game has.
      * Using this, you can also detect if a game has received a revision.
      * For example, if a game had 100 achievements last month and has 102 today,
@@ -246,8 +247,8 @@ interface RetroInterface {
     ): NetworkResponse<GetAchievementCount.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a dictionary of the number of players who have earned
-     * a specific number of achievements for a given game ID. This endpoint can be used to determine
+     * A call to this function will retrieve a dictionary of the number of players who have earned
+     * a specific number of achievements for a given game ID. This function can be used to determine
      * the total mastery count for a game, as well as how rare that overall mastery is.
      */
     @Mock @MockResponse(body = "/v1/game/GetAchievementDistribution.json")
@@ -269,7 +270,7 @@ interface RetroInterface {
     ): NetworkResponse<GetGameRankAndScore.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a given game's list of leaderboards, targeted by the game's ID.
+     * A call to this function will retrieve a given game's list of leaderboards, targeted by the game's ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetGameLeaderboards.json")
     @POST("/API/API_GetGameLeaderboards.php")
@@ -280,7 +281,7 @@ interface RetroInterface {
     ): NetworkResponse<GetGameLeaderboards.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve a given leaderboard's entries, targeted by its ID.
+     * A call to this function will retrieve a given leaderboard's entries, targeted by its ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetLeaderboardEntries.json")
     @POST("/API/API_GetLeaderboardEntries.php")
@@ -291,7 +292,7 @@ interface RetroInterface {
     ): NetworkResponse<GetLeaderboardEntries.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve the complete list of all system ID and name pairs on the site.
+     * A call to this function will retrieve the complete list of all system ID and name pairs on the site.
      *
      * [activeSystemsOnly] set to 1
      * [gameSystemsOnly] set to 1
@@ -304,9 +305,9 @@ interface RetroInterface {
     ): NetworkResponse<GetConsoleID.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve the complete list of games for a specified console on the site,
+     * A call to this function will retrieve the complete list of games for a specified console on the site,
      * targeted by the console ID. If you do not know the console ID you're looking for,
-     * try using the all systems endpoint.
+     * try using the all systems function.
      */
     @Mock @MockResponse(body = "/v1/system/GetGameList.json")
     @POST("/API/API_GetGameList.php")
@@ -346,7 +347,7 @@ interface RetroInterface {
     suspend fun getActiveClaims(): NetworkResponse<GetClaims.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve all recently granted game awards across the site's userbase.
+     * A call to this function will retrieve all recently granted game awards across the site's userbase.
      */
     @Mock @MockResponse(body = "/v1/feed/GetRecentGameAwards.json")
     @POST("/API/API_GetRecentGameAwards.php")
@@ -358,7 +359,7 @@ interface RetroInterface {
     ): NetworkResponse<GetRecentGameAwards.Response, ErrorResponse>
 
     /**
-     * A call to this endpoint will retrieve comprehensive metadata about the current Achievement of the Week.
+     * A call to this function will retrieve comprehensive metadata about the current Achievement of the Week.
      */
     @Mock @MockResponse(body = "/v1/event/GetAchievementOfTheWeek.json")
     @POST("/API/API_GetAchievementOfTheWeek.php")
@@ -427,4 +428,40 @@ interface RetroInterface {
     suspend fun getAchievementTicketStats(
         @Query("a") achievementId: Long
     ): NetworkResponse<GetAchievementTicketStats.Response, ErrorResponse>
+
+    /**
+     * A call to this function returns comments of a specified user.
+     */
+    @Mock @MockResponse(body = "/v1/comments/GetCommentsOnUserWall.json")
+    @POST("/API/API_GetComments.php")
+    suspend fun getCommentsOnUserWall(
+        @Query("i") username: String,
+        @Query("c") count: Int = 10,
+        @Query("o") offset: Int = 0,
+        @Query("t") type: Int = 3
+    ): NetworkResponse<GetComments.Response, ErrorResponse>
+
+    /**
+     * A call to this function returns comments of a specified game.
+     */
+    @Mock @MockResponse(body = "/v1/comments/GetCommentsOnGameWall.json")
+    @POST("/API/API_GetComments.php")
+    suspend fun getCommentsOnGameWall(
+        @Query("i") gameId: Long,
+        @Query("c") count: Int = 10,
+        @Query("o") offset: Int = 0,
+        @Query("t") type: Int = 1
+    ): NetworkResponse<GetComments.Response, ErrorResponse>
+
+    /**
+     * A call to this function returns comments of a specified achievement.
+     */
+    @Mock @MockResponse(body = "/v1/comments/GetCommentsOnAchievementWall.json")
+    @POST("/API/API_GetComments.php")
+    suspend fun getCommentsOnAchievementWall(
+        @Query("i") achievementId: Long,
+        @Query("c") count: Int = 10,
+        @Query("o") offset: Int = 0,
+        @Query("t") type: Int = 2
+    ): NetworkResponse<GetComments.Response, ErrorResponse>
 }
