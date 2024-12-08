@@ -1,0 +1,33 @@
+{
+    "Count": 3,
+    "Total": 1725170,
+    "Results": [
+        {
+            "User": "pedrick",
+            "AwardKind": "beaten-softcore",
+            "AwardDate": "2024-12-07T11:57:30+00:00",
+            "GameID": 2566,
+            "GameTitle": "Batman: Return of the Joker",
+            "ConsoleID": 4,
+            "ConsoleName": "Game Boy"
+        },
+        {
+            "User": "dizzykei",
+            "AwardKind": "mastered",
+            "AwardDate": "2024-12-07T11:57:18+00:00",
+            "GameID": 7128,
+            "GameTitle": "Elf: The Movie",
+            "ConsoleID": 5,
+            "ConsoleName": "Game Boy Advance"
+        },
+        {
+            "User": "netbui",
+            "AwardKind": "beaten-softcore",
+            "AwardDate": "2024-12-07T11:57:10+00:00",
+            "GameID": 300,
+            "GameTitle": "Castlevania: Dracula X | Castlevania: Vampire's Kiss",
+            "ConsoleID": 3,
+            "ConsoleName": "SNES/Super Famicom"
+        }
+    ]
+}
