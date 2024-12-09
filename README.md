@@ -26,7 +26,7 @@ Then add this `api-kotlin` dependency to your `pom.xml` project!
 <dependency>    
     <groupId>com.github.RetroAchievements</groupId>    
     <artifactId>api-kotlin</artifactId>    
-    <version>1.0.14</version>
+    <version>1.0.15</version>
 </dependency>
 ```
 
@@ -87,7 +87,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetGameList</summary>
 <br>
 
-> A call to this endpoint will retrieve the complete list of games for a specified console on the site, targeted by the console ID. If you do not know the console ID you're looking for, try using the all systems endpoint.
+> A call to this function will retrieve the complete list of games for a specified console on the site, targeted by the console ID. If you do not know the console ID you're looking for, try using the all systems function.
 
 > <span style='color: red;'>Warning</span>, it's recommended to cache these results, as it is subject to rate-limiting & security measures.
 
@@ -125,7 +125,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetConsoleIds</summary>
 <br>
 
-> A call to this endpoint will retrieve the complete list of all system ID and name pairs on the site.
+> A call to this function will retrieve the complete list of all system ID and name pairs on the site.
 
 **Available Parameters**
 
@@ -162,7 +162,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetAchievementOfTheWeek</summary>
 <br>
 
-> A call to this endpoint will retrieve comprehensive metadata about the current Achievement of the Week.
+> A call to this function will retrieve comprehensive metadata about the current Achievement of the Week.
 
 **Example**
 ```kotlin
@@ -280,13 +280,41 @@ if (response is NetworkResponse.Success) {
 
 </details>
 
+<details>
+<summary>GetRecentGameAwards</summary>
+<br>
+
+> A call to this function will retrieve all recently granted game awards across the site's userbase.
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetRecentGameAwards.Response, ErrorResponse> = api.getRecentGameAwards()
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val topUsers: GetRecentGameAwards.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
 #### Games
 
 <details>
 <summary>GetAchievementDistribution</summary>
 <br>
 
-> A call to this endpoint will retrieve a dictionary of the number of players who have earned a specific number of achievements for a given game ID. This endpoint can be used to determine the total mastery count for a game, as well as how rare that overall mastery is.
+> A call to this function will retrieve a dictionary of the number of players who have earned a specific number of achievements for a given game ID. This function can be used to determine the total mastery count for a game, as well as how rare that overall mastery is.
 
 **Available Parameters**
 
@@ -324,7 +352,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetAchievementCount</summary>
 <br>
 
-> A call to this endpoint will retrieve the list of achievement IDs for a game, targeted by game ID. This can be useful if you'd like to quickly check how many achievements a particular game has. Using this, you can also detect if a game has received a revision. For example, if a game had 100 achievements last month and has 102 today, you know the game's achievement set has been revised.
+> A call to this function will retrieve the list of achievement IDs for a game, targeted by game ID. This can be useful if you'd like to quickly check how many achievements a particular game has. Using this, you can also detect if a game has received a revision. For example, if a game had 100 achievements last month and has 102 today, you know the game's achievement set has been revised.
 
 **Available Parameters**
 
@@ -360,7 +388,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetGameExtended</summary>
 <br>
 
-> A call to this endpoint will retrieve extended metadata about a game, targeted via its unique ID.
+> A call to this function will retrieve extended metadata about a game, targeted via its unique ID.
 
 **Available Parameters**
 
@@ -434,7 +462,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetGame</summary>
 <br>
 
-> A call to this endpoint will retrieve basic metadata about a game, targeted via its unique ID.
+> A call to this function will retrieve basic metadata about a game, targeted via its unique ID.
 
 **Available Parameters**
 
@@ -467,10 +495,48 @@ if (response is NetworkResponse.Success) {
 </details>
 
 <details>
+<summary>GetGameHashes</summary>
+<br>
+
+> A call to this function will retrieve the hashes linked to a game, targeted via its unique ID.
+
+**Available Parameters**
+
+| Name   | Type | Description         | Example |
+|:-------|:-----|:--------------------|:--------|
+| gameId | Long | The target game ID. | 14402   |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetGameHashes.Response, ErrorResponse> = api.getGameHashes(
+    gameId = 14402
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val gameHashes: GetGameHashes.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+#### Leaderboards
+
+<details>
 <summary>GetGameLeaderboards</summary>
 <br>
 
-> A call to this endpoint will retrieve a given game's list of leaderboards, targeted by the game's ID.
+> A call to this function will retrieve a given game's list of leaderboards, targeted by the game's ID.
 
 **Available Parameters**
 
@@ -508,7 +574,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetLeaderboardEntries</summary>
 <br>
 
-> A call to this endpoint will retrieve a given leaderboard's entries, targeted by its ID.
+> A call to this function will retrieve a given leaderboard's entries, targeted by its ID.
 
 **Available Parameters**
 
@@ -770,7 +836,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetAchievementsEarnedBetween</summary>
 <br>
 
-> A call to this endpoint will retrieve a list of achievements unlocked by a given user between two given dates.
+> A call to this function will retrieve a list of achievements unlocked by a given user between two given dates.
 
 **Available Parameters**
 
@@ -812,7 +878,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetAchievementsEarnedOnDay</summary>
 <br>
 
-> A call to this endpoint will retrieve a list of achievements unlocked by a given user on a specified date.
+> A call to this function will retrieve a list of achievements unlocked by a given user on a specified date.
 
 **Available Parameters**
 
@@ -851,7 +917,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetUserCompletedGames</summary>
 <br>
 
-> A call to this endpoint will retrieve completion metadata about the games a given user has played. It returns two entries per each game: one for the softcore completion and one for the hardcore completion. These are designated by the hardcoreMode property on each completion object.
+> A call to this function will retrieve completion metadata about the games a given user has played. It returns two entries per each game: one for the softcore completion and one for the hardcore completion. These are designated by the hardcoreMode property on each completion object.
 
 **Available Parameters**
 
@@ -884,10 +950,48 @@ if (response is NetworkResponse.Success) {
 </details>
 
 <details>
+<summary>GetUserWantToPlayList</summary>
+<br>
+
+> A call to this function will retrieve a given user's "Want to Play Games" list, targeted by their username. Results will only be returned if the target user is yourself, or if both you and the target user follow each other.
+
+**Available Parameters**
+
+| Name     | Type   | Description                                                      | Example   | Default |
+|:---------|:-------|:-----------------------------------------------------------------|:----------|:--------|
+| username | String | The username of the user you'd like to query completed games for | MaxMilyin |         |
+| offset   | Int    | number of entries to skip                                        | 100       | 0       |
+| count    | Int    | number of entries to return (max: 500)                           | 50        | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetUserWantToPlayList.Response, ErrorResponse> = api.getUserWantToPlayList(
+    username = "MaxMilyin",
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val wantToPlayList: GetUserWantToPlayList.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+<details>
 <summary>GetUserCompletionProgress</summary>
 <br>
 
-> A call to this endpoint will retrieve a giver user's completion progress, targeted by their username.
+> A call to this function will retrieve a giver user's completion progress, targeted by their username.
 
 **Available Parameters**
 
@@ -925,7 +1029,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetGameInfoAndUserProgress</summary>
 <br>
 
-> A call to this endpoint will retrieve extended metadata about a game, in addition to a user's progress about that game. This is targeted via a game's unique ID and a given username.
+> A call to this function will retrieve extended metadata about a game, in addition to a user's progress about that game. This is targeted via a game's unique ID and a given username.
 
 **Available Parameters**
 
@@ -1185,7 +1289,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetUserProfile</summary>
 <br>
 
-> A call to this endpoint will retrieve minimal user profile information, such as their ID, motto, most recent game ID, avatar, and points.
+> A call to this function will retrieve minimal user profile information, such as their ID, motto, most recent game ID, avatar, and points.
 
 **Available Parameters**
 
@@ -1221,7 +1325,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetUserAwards</summary>
 <br>
 
-> A call to this endpoint will retrieve metadata about the target user's site awards, via their username.
+> A call to this function will retrieve metadata about the target user's site awards, via their username.
 
 **Available Parameters**
 
@@ -1257,7 +1361,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetUsersIFollow</summary>
 <br>
 
-> A call to this endpoint will retrieve a list of users that I follow.
+> A call to this function will retrieve a list of users that I follow.
 
 **Available Parameters**
 
@@ -1292,7 +1396,7 @@ if (response is NetworkResponse.Success) {
 <summary>GetUsersFollowingMe</summary>
 <br>
 
-> A call to this endpoint will retrieve a list of users that are following me.
+> A call to this function will retrieve a list of users that are following me.
 
 **Available Parameters**
 
@@ -1311,6 +1415,122 @@ val response: NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse> = api
 if (response is NetworkResponse.Success) {
     // handle the data
     val users: GetUsersFollowingMe.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+#### Comments
+
+<details>
+<summary>GetCommentsOnUserWall</summary>
+<br>
+
+> A call to this function returns comments of a specified user.
+
+**Available Parameters**
+
+| Name     | Type   | Description                                                      | Example   | Default |
+|:---------|:-------|:-----------------------------------------------------------------|:----------|:--------|
+| username | String | The username of the user you'd like to query completed games for | MaxMilyin |         |
+| offset   | Int    | number of entries to skip                                        | 100       | 0       |
+| count    | Int    | number of entries to return (max: 500)                           | 50        | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnUserWall(
+    username = "MaxMilyin",
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val comments: GetComments.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+<details>
+<summary>GetCommentsOnGameWall</summary>
+<br>
+
+> A call to this function returns comments of a specified game.
+
+**Available Parameters**
+
+| Name   | Type | Description                            | Example | Default |
+|:-------|:-----|:---------------------------------------|:--------|:--------|
+| gameId | Long | The game ID you'd like to search for   | 14402   |         |
+| offset | Int  | number of entries to skip              | 100     | 0       |
+| count  | Int  | number of entries to return (max: 500) | 50      | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnGameWall(
+    gameId = 14402,
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val comments: GetComments.Response = response.body
+
+} else if (response is NetworkResponse.Error) {
+    // if the server returns an error it be found here
+    val errorResponse: ErrorResponse? = response.body
+
+    // if the api (locally) had an internal error, it'll be found here
+    val internalError: Throwable? = response.error
+}
+```
+
+</details>
+
+<details>
+<summary>GetCommentsOnAchievementWall</summary>
+<br>
+
+> A call to this function returns comments of a specified achievement.
+
+**Available Parameters**
+
+| Name          | Type | Description                                | Example | Default |
+|:--------------|:-----|:-------------------------------------------|:--------|:--------|
+| achievementId | Long | The achievement ID you'd like to query for | 12345   |         |
+| offset        | Int  | number of entries to skip                  | 100     | 0       |
+| count         | Int  | number of entries to return (max: 500)     | 50      | 100     |
+
+**Example**
+```kotlin
+val credentials = RetroCredentials("<username>", "<web api key>")
+val api: RetroInterface = RetroClient(credentials).api
+
+val response: NetworkResponse<GetComments.Response, ErrorResponse> = api.getCommentsOnAchievementWall(
+    achievementId = 14402,
+)
+
+if (response is NetworkResponse.Success) {
+    // handle the data
+    val comments: GetComments.Response = response.body
 
 } else if (response is NetworkResponse.Error) {
     // if the server returns an error it be found here
