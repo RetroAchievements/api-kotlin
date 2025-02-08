@@ -132,7 +132,7 @@ class GetGameInfoAndUserProgress {
             @SerializedName("MemAddr")
             val memAddr: String,
 
-            @SerializedName("Type")
+            @SerializedName("type")
             val type: String?,
 
             @SerializedName("DateEarnedHardcore")
