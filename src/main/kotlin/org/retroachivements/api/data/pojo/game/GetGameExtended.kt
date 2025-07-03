@@ -45,7 +45,7 @@ class GetGameExtended {
         val released: String?,
 
         @SerializedName("IsFinal")
-        val isFinal: Int,
+        val isFinal: Boolean,
 
         @SerializedName("RichPresencePatch")
         val richPresencePatch: String,

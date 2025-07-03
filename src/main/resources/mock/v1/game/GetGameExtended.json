@@ -12,7 +12,7 @@
   "Developer": "",
   "Genre": "",
   "Released": "June 23, 1991",
-  "IsFinal": 0,
+  "IsFinal": false,
   "RichPresencePatch": "cce60593880d25c97797446ed33eaffb",
   "players_total": 27080,
   "achievement_set_version_hash": "14ce9b51a2e1cf63d55b7ebf389de3c9f27c564b33f5b9a8e17836af2a61bfcd",
