@@ -50,6 +50,9 @@ class GetGame {
         @SerializedName("Released")
         val released: String?,
 
+        @SerializedName("ReleasedAtGranularity")
+        val releasedAtGranularity: String?,
+
         @SerializedName("GameTitle")
         val gameTitle: String,
 
