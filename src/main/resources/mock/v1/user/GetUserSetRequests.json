@@ -1,0 +1,27 @@
+{
+    "RequestedSets": [
+        {
+            "GameID": 8149,
+            "Title": "Jurassic Park Institute Tour: Dinosaur Rescue",
+            "ConsoleID": 5,
+            "ConsoleName": "Game Boy Advance",
+            "ImageIcon": "/Images/000001.png"
+        },
+        {
+            "GameID": 600,
+            "Title": "Psycho Pinball",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/039797.png"
+        },
+        {
+            "GameID": 1,
+            "Title": "Sonic the Hedgehog",
+            "ConsoleID": 1,
+            "ConsoleName": "Genesis/Mega Drive",
+            "ImageIcon": "/Images/085573.png"
+        }
+    ],
+    "TotalRequests": 5,
+    "PointsForNext": 5000
+}
