@@ -90,7 +90,7 @@ interface RetroInterface {
     @Mock @MockResponse(body = "/v1/game/GetGameProgression.json")
     @POST("/API/API_GetGameProgression.php")
     suspend fun getGameProgression(
-        @Query("i") gameId: String,
+        @Query("i") gameId: Long,
         @Query("h") hardcore: Int = 0
     ): NetworkResponse<GetGameProgression.Response, ErrorResponse>
 
@@ -149,7 +149,7 @@ interface RetroInterface {
     @POST("/API/API_GetUserProgress.php")
     suspend fun getUserProgress(
         @Query("u") username: String,
-        @Query("i") gameId: String
+        @Query("i") gameId: Long
     ): NetworkResponse<GetUserProgress.Response, ErrorResponse>
 
     /**
