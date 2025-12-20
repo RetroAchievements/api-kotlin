@@ -319,7 +319,7 @@ interface RetroInterface {
     @POST("/API/API_GetUserGameLeaderboards.php")
     suspend fun getUserGameLeaderboards(
         @Query("i") gameId: Long,
-        @Query("u") userId: String,
+        @Query("u") userId: String? = null,
         @Query("o") offset: Int = 0,
         @Query("c") count: Int = 100
     ): NetworkResponse<GetUserGameLeaderboard.Response, ErrorResponse>
