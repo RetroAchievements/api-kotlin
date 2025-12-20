@@ -149,7 +149,7 @@ interface RetroInterface {
     @POST("/API/API_GetUserProgress.php")
     suspend fun getUserProgress(
         @Query("u") username: String,
-        @Query("i") gameId: Long
+        @Query("i") gameId: String
     ): NetworkResponse<GetUserProgress.Response, ErrorResponse>
 
     /**
