@@ -84,6 +84,16 @@ interface RetroInterface {
     ): NetworkResponse<GetGameInfoAndUserProgress.Response, ErrorResponse>
 
     /**
+     * A call to this endpoint will retrieve information about the average time to unlock achievements in a game, targeted via its unique ID.
+     */
+    @Mock @MockResponse(body = "/v1/game/GetGameProgression.json")
+    @POST("/API/API_GetGameProgression.php")
+    suspend fun getGameProgression(
+        @Query("i") gameId: String,
+        @Query("h") hardcore: Int = 0
+    ): NetworkResponse<GetGameProgression.Response, ErrorResponse>
+
+    /**
      * A call to this function will retrieve a giver user's completion progress, targeted by their username.
      */
     @Mock @MockResponse(body = "/v1/user/GetUserCompletionProgress.json")
