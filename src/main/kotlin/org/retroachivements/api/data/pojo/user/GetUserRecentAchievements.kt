@@ -27,6 +27,9 @@ class GetUserRecentAchievements {
             @SerializedName("Points")
             val points: Int,
 
+            @SerializedName("TrueRatio")
+            val trueRatio: Int,
+
             @SerializedName("Type")
             val type: String?,
 
