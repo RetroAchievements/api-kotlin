@@ -217,6 +217,16 @@ interface RetroInterface {
     ): NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse>
 
     /**
+     * A call to this endpoint will retrieve a given user's set requests, maximum total requests and points until next request.
+     */
+    @Mock @MockResponse(body = "/v1/user/GetUserSetRequests.json")
+    @POST("/API/API_GetUserSetRequests.php")
+    suspend fun getUserSetRequests(
+        @Query("u") ulid: String,
+        @Query("t") all: Int = 0
+    ): NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse>
+
+    /**
      * A call to this function will retrieve basic metadata about a game, targeted via its unique ID.
      */
     @Mock @MockResponse(body = "/v1/game/GetGame.json")
@@ -323,7 +333,7 @@ interface RetroInterface {
     @Mock @MockResponse(body = "/v1/system/GetGameList.json")
     @POST("/API/API_GetGameList.php")
     @RequiresCache
-    suspend fun API_GetGameList(
+    suspend fun getGameList(
         @Query("i") consoleId: Long,
         @Query("f") shouldOnlyRetrieveGamesWithAchievements: Int = 0,
         @Query("h") shouldRetrieveGameHashes: Int = 0,
