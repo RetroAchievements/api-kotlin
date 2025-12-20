@@ -323,10 +323,12 @@ interface RetroInterface {
     @Mock @MockResponse(body = "/v1/system/GetGameList.json")
     @POST("/API/API_GetGameList.php")
     @RequiresCache
-    suspend fun getGameList(
+    suspend fun API_GetGameList(
         @Query("i") consoleId: Long,
         @Query("f") shouldOnlyRetrieveGamesWithAchievements: Int = 0,
-        @Query("h") shouldRetrieveGameHashes: Int = 0
+        @Query("h") shouldRetrieveGameHashes: Int = 0,
+        @Query("o") offset: Int = 0,
+        @Query("c") count: Int = 0
     ): NetworkResponse<GetGameList.Response, ErrorResponse>
 
     /**
