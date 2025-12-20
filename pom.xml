@@ -6,7 +6,7 @@
 
     <groupId>org.retroachievements</groupId>
     <artifactId>api-kotlin</artifactId>
-    <version>1.0.17</version>
+    <version>1.0.18</version>
 
     <dependencyManagement>
         <dependencies>
