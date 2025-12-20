@@ -12,6 +12,7 @@
   "Developer": "",
   "Genre": "",
   "Released": "June 23, 1991",
+  "ReleasedAtGranularity": "day",
   "IsFinal": false,
   "RichPresencePatch": "cce60593880d25c97797446ed33eaffb",
   "players_total": 27080,
