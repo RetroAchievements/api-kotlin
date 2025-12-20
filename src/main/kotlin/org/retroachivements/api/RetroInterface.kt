@@ -224,7 +224,7 @@ interface RetroInterface {
     suspend fun getUserSetRequests(
         @Query("u") userId: String,
         @Query("t") all: Int = 0
-    ): NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse>
+    ): NetworkResponse<GetUserSetRequests.Response, ErrorResponse>
 
     /**
      * A call to this function will retrieve basic metadata about a game, targeted via its unique ID.
