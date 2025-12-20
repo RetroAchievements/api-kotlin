@@ -782,6 +782,43 @@ class RetroInterfaceTest {
         }
     }
 
+    @Test
+    fun `check getUserSetRequests response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetUserSetRequests.Response, ErrorResponse> = api.getUserSetRequests(
+                userId = "MaxMilyin"
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
+        }
+    }
+
+    @Test
+    fun `check getUserGameLeaderboards response parser`() {
+
+        runBlocking {
+
+            // obtain mocked version of the API
+            val api = createMockedApi()
+
+            val comments: NetworkResponse<GetUserGameLeaderboard.Response, ErrorResponse> = api.getUserGameLeaderboards(
+                gameId = 27683,
+                userId = "MaxMilyin"
+            )
+
+            assert(comments is NetworkResponse.Success)
+
+            assertNotNull((comments as NetworkResponse.Success).body)
+        }
+    }
+
     private fun createMockedApi(): RetroInterface {
 
         val client = RetroClient(RetroCredentials("<username>", "<web api key>"))
