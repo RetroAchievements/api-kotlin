@@ -23,6 +23,9 @@ class GetUserSummary {
         @SerializedName("RichPresenceMsg")
         val richPresenceMsg: String?,
 
+        @SerializedName("RichPresenceMsgDate")
+        val richPresenceMsgDate: String?,
+
         @SerializedName("LastGameID")
         val lastGameId: Long,
 
