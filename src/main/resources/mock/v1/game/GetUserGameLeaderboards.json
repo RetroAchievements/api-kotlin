@@ -1,0 +1,21 @@
+{
+    "Count": 10,
+    "Total": 64,
+    "Results": [
+        {
+            "ID": 19062,
+            "RankAsc": true,
+            "Title": "New Zealand One",
+            "Description": "Complete New Zealand S1 in least time",
+            "Format": "MILLISECS",
+            "UserEntry": {
+                "User": "zuliman92",
+                "ULID": "00003EMFWR7XB8SDPEHB3K56ZQ",
+                "Score": 12620,
+                "FormattedScore": "2:06.20",
+                "Rank": 2,
+                "DateUpdated": "2024-12-12T16:40:59+00:00"
+            }
+        }
+    ]
+}

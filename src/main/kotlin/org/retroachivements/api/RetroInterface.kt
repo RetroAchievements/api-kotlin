@@ -222,7 +222,7 @@ interface RetroInterface {
     @Mock @MockResponse(body = "/v1/user/GetUserSetRequests.json")
     @POST("/API/API_GetUserSetRequests.php")
     suspend fun getUserSetRequests(
-        @Query("u") ulid: String,
+        @Query("u") userId: String,
         @Query("t") all: Int = 0
     ): NetworkResponse<GetUsersFollowingMe.Response, ErrorResponse>
 
@@ -311,6 +311,18 @@ interface RetroInterface {
         @Query("o") offset: Int = 0,
         @Query("c") count: Int = 100
     ): NetworkResponse<GetLeaderboardEntries.Response, ErrorResponse>
+
+    /**
+     * A call to this function will retrieve a given leaderboard's entries, targeted by its ID.
+     */
+    @Mock @MockResponse(body = "/v1/game/GetUserGameLeaderboards.json")
+    @POST("/API/API_GetUserGameLeaderboards.php")
+    suspend fun getUserGameLeaderboards(
+        @Query("i") gameId: Long,
+        @Query("u") userId: String,
+        @Query("o") offset: Int = 0,
+        @Query("c") count: Int = 100
+    ): NetworkResponse<GetUserGameLeaderboard.Response, ErrorResponse>
 
     /**
      * A call to this function will retrieve the complete list of all system ID and name pairs on the site.
