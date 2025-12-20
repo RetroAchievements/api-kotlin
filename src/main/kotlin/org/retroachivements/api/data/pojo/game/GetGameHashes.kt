@@ -11,10 +11,13 @@ class GetGameHashes {
     data class Result(
         @SerializedName("Name")
         val name: String,
+
         @SerializedName("MD5")
         val md5: String,
+
         @SerializedName("Labels")
         val labels: List<String>,
+
         @SerializedName("PatchUrl")
         val patchUrl: String?,
     )
