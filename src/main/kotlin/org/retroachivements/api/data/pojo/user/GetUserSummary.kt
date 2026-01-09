@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.user
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetUserSummary {
 
@@ -56,8 +58,9 @@ class GetUserSummary {
         @SerializedName("ID")
         val id: Long,
 
+        @JsonAdapter(BooleanJsonDeserializer::class)
         @SerializedName("UserWallActive")
-        val userWallActive: Int,
+        val userWallActive: Boolean,
 
         @SerializedName("Motto")
         val motto: String?,
@@ -109,6 +112,7 @@ class GetUserSummary {
             @SerializedName("BadgeName")
             val badgeName: String,
 
+            @JsonAdapter(BooleanJsonDeserializer::class)
             @SerializedName("IsAwarded")
             val isAwarded: Boolean,
 
@@ -222,8 +226,9 @@ class GetUserSummary {
             @SerializedName("Released")
             val released: String?,
 
+            @JsonAdapter(BooleanJsonDeserializer::class)
             @SerializedName("IsFinal")
-            val isFinal: Int,
+            val isFinal: Boolean,
 
             @SerializedName("ConsoleName")
             val consoleName: String,

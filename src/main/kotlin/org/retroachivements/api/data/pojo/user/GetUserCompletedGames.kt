@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.user
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetUserCompletedGames {
 
@@ -30,8 +32,9 @@ class GetUserCompletedGames {
             @SerializedName("PctWon")
             val pctWon: String,
 
+            @JsonAdapter(BooleanJsonDeserializer::class)
             @SerializedName("HardcoreMode")
-            val hardcoreMode: Long
+            val hardcoreMode: Boolean
         )
     }
 }

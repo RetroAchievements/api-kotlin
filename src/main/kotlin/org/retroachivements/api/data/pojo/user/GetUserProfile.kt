@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.user
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetUserProfile {
     data class Response(
@@ -37,12 +39,14 @@ class GetUserProfile {
         @SerializedName("Permissions")
         val permissions: Int,
 
+        @JsonAdapter(BooleanJsonDeserializer::class)
         @SerializedName("Untracked")
-        val untracked: Int,
+        val untracked: Boolean,
 
         @SerializedName("ID")
         val id: Long,
 
+        @JsonAdapter(BooleanJsonDeserializer::class)
         @SerializedName("UserWallActive")
         val userWallActive: Boolean,
 

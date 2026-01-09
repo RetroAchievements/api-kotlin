@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.game
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetUserGameLeaderboard {
 
@@ -20,6 +22,7 @@ class GetUserGameLeaderboard {
             @SerializedName("ID")
             val id: Int,
 
+            @JsonAdapter(BooleanJsonDeserializer::class)
             @SerializedName("RankAsc")
             val rankAsc: Boolean,
 

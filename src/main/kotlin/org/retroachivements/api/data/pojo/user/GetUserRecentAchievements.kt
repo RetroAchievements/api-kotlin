@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.user
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetUserRecentAchievements {
 
@@ -9,8 +11,9 @@ class GetUserRecentAchievements {
             @SerializedName("Date")
             val date: String,
 
+            @JsonAdapter(BooleanJsonDeserializer::class)
             @SerializedName("HardcoreMode")
-            val hardcoreMode: Int,
+            val hardcoreMode: Boolean,
 
             @SerializedName("AchievementID")
             val achievementId: Long,

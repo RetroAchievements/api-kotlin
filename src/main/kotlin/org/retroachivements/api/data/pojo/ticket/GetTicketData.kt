@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.ticket
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetTicketData {
 
@@ -50,8 +52,9 @@ class GetTicketData {
         @SerializedName("ReportState")
         val reportState: Int,
 
+        @JsonAdapter(BooleanJsonDeserializer::class)
         @SerializedName("Hardcore")
-        val hardcore: Int?,
+        val hardcore: Boolean?,
 
         @SerializedName("ReportNotes")
         val reportNotes: String,
