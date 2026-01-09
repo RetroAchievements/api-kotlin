@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.achievement
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetAchievementUnlocks {
 
@@ -38,8 +40,9 @@ class GetAchievementUnlocks {
                 @SerializedName("DateAwarded")
                 val dateAwarded: String,
 
+                @JsonAdapter(BooleanJsonDeserializer::class)
                 @SerializedName("HardcoreMode")
-                val hardcoreMode: Int,
+                val hardcoreMode: Boolean,
 
                 @SerializedName("RASoftcorePoints")
                 val raSoftcorePoints: Int

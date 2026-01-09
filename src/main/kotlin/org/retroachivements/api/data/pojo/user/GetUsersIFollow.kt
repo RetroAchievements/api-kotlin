@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.user
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetUsersIFollow {
     data class Response(
@@ -24,6 +26,7 @@ class GetUsersIFollow {
         @SerializedName("PointsSoftcore")
         val pointsSoftcore: Long,
 
+        @JsonAdapter(BooleanJsonDeserializer::class)
         @SerializedName("IsFollowingMe")
         val isFollowingMe: Boolean,
     )

@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.feed
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetClaims {
 
@@ -54,8 +56,9 @@ class GetClaims {
             @SerializedName("MinutesLeft")
             val minutesLeft: Long,
 
+            @JsonAdapter(BooleanJsonDeserializer::class)
             @SerializedName("UserIsJrDev")
-            val userIsJrDev: Int
+            val userIsJrDev: Boolean
         )
     }
 }

@@ -1,6 +1,8 @@
 package org.retroachivements.api.data.pojo.game
 
+import com.google.gson.annotations.JsonAdapter
 import com.google.gson.annotations.SerializedName
+import org.retroachivements.api.core.BooleanJsonDeserializer
 
 class GetGameExtended {
 
@@ -47,6 +49,7 @@ class GetGameExtended {
         @SerializedName("ReleasedAtGranularity")
         val releasedAtGranularity: String?,
 
+        @JsonAdapter(BooleanJsonDeserializer::class)
         @SerializedName("IsFinal")
         val isFinal: Boolean,
 
